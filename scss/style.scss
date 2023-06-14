@@ -115,8 +115,7 @@ body {
   margin-top: 30px;
    
 }
-.photos a:nth-child(3),
-.photos a:nth-child(6) {
+.photos a:nth-child(3n+1) {
   margin-top: -20px; 
 }
 
