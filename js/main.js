@@ -6,8 +6,10 @@ const selectElement = document.getElementById('hero_select');
 const submitBtn = document.querySelector('.hero_centered-form-btn')
 const photosContainer = document.querySelector('.photos')
 const countPage = document.querySelector('.hero_count-of-page')
+const mess = document.querySelector('.hero_centered--mess')
 
-let perPage = 10;
+let perPage = 0;
+
 
 
 const createElement = (data) => {
@@ -31,31 +33,49 @@ const createElement = (data) => {
 
 
 const searchPhoto = ()  => {
+	  if (selectElement.value === '0') {
+		return;
+	  }
+	  mess.style.display = 'none';
+	
+	  if (!inputSearch.value || !selectElement.value) {
+		photosContainer.innerHTML = '';
+		return;
+	  }
+	  mess.style.display = 'none';
 	photosContainer.innerHTML='';
 	const count = parseInt(selectElement.value);
   perPage = count;
 	fetch(`${API_URL}/search/photos/?client_id=${ACCESS_KEY}&query=${inputSearch.value}&per_page=${count}`)
 		.then(res => res.json())
 		.then(data => {
-
-
-			createElement(data);
 			
+			createElement(data);
+			inputSearch.value = '';
 		})
-
-		
 }
+
 
 
 
 const handleSubmit = (e) => {
 	e.preventDefault();
+	if (selectElement.value === '0') {
+		mess.style.display = 'block';
+		return;
+	  }
+	  mess.style.display = 'none';
 	searchPhoto();
 }
 
 const handleKeyPress = event => {
 	if (event.key === 'Enter') {
 	  event.preventDefault();
+	  if (selectElement.value === '0') {
+		mess.style.display = 'block';
+		return;
+	  }
+	  mess.style.display = 'none';
 	  searchPhoto();
 	}
   };
