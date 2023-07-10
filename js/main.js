@@ -6,7 +6,10 @@ const selectElement = document.getElementById('hero_select');
 const submitBtn = document.querySelector('.hero_centered-form-btn')
 const photosContainer = document.querySelector('.photos')
 const countPage = document.querySelector('.hero_count-of-page')
-const mess = document.querySelector('.hero_centered--mess')
+const warning = document.querySelector('.hero_centered--warning')
+const closeModal = document.querySelector('.modal_content-close')
+const modal = document.querySelector('.modal')
+const modalImage = document.querySelector('.modal_img')
 
 let perPage = 0;
 
@@ -20,6 +23,8 @@ const createElement = (data) => {
 		linkElement.target = '_blank';
 		linkElement.addEventListener('click', (e) => {
   		e.preventDefault();
+		  modalImage.src = photo.urls.regular; 
+		  modal.style.display = 'block'; 
 		});
 		const imgElement = document.createElement('img');
 		imgElement.src = photo.urls.regular;
@@ -36,13 +41,13 @@ const searchPhoto = ()  => {
 	  if (selectElement.value === '0') {
 		return;
 	  }
-	  mess.style.display = 'none';
+	  warning.style.display = 'none';
 	
 	  if (!inputSearch.value || !selectElement.value) {
 		photosContainer.innerHTML = '';
 		return;
 	  }
-	  mess.style.display = 'none';
+	  warning.style.display = 'none';
 	photosContainer.innerHTML='';
 	const count = parseInt(selectElement.value);
   perPage = count;
@@ -52,38 +57,41 @@ const searchPhoto = ()  => {
 			
 			createElement(data);
 			inputSearch.value = '';
+console.log(data)
+			
 		})
+
+		
 }
-
-
-
 
 const handleSubmit = (e) => {
 	e.preventDefault();
 	if (selectElement.value === '0') {
-		mess.style.display = 'block';
+		warning.style.display = 'block';
 		return;
 	  }
-	  mess.style.display = 'none';
+	  warning.style.display = 'none';
 	searchPhoto();
 }
 
-const handleKeyPress = event => {
-	if (event.key === 'Enter') {
-	  event.preventDefault();
+const handleKeyPress = e => {
+	if (e.key === 'Enter') {
+	  e.preventDefault();
 	  if (selectElement.value === '0') {
-		mess.style.display = 'block';
+		warning.style.display = 'block';
 		return;
 	  }
-	  mess.style.display = 'none';
+	  warning.style.display = 'none';
 	  searchPhoto();
 	}
   };
 
- 
-
+const closeModalBtn = () => {
+	modal.style.display = 'none'
+}
 
 inputSearch.addEventListener('change', searchPhoto)
 inputSearch.addEventListener('keydown', handleKeyPress)
 submitBtn.addEventListener('click', handleSubmit)
 selectElement.addEventListener('change', searchPhoto);
+closeModal.addEventListener('click', closeModalBtn);
