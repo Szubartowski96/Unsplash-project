@@ -10,6 +10,7 @@ const warning = document.querySelector('.hero_centered--warning')
 const closeModal = document.querySelector('.modal_content-close')
 const modal = document.querySelector('.modal')
 const modalImage = document.querySelector('.modal_img')
+const selectSize = document.getElementById('select_choose-size')
 
 let perPage = 0;
 
@@ -23,7 +24,6 @@ const createElement = (data) => {
 		linkElement.target = '_blank';
 		linkElement.addEventListener('click', (e) => {
   		e.preventDefault();
-		  modalImage.src = photo.urls.regular; 
 		  modal.style.display = 'block'; 
 		});
 		const imgElement = document.createElement('img');
@@ -57,7 +57,8 @@ const searchPhoto = ()  => {
 			
 			createElement(data);
 			inputSearch.value = '';
-console.log(data)
+			// console.log(data.results[0].urls.small)
+			// console.log(data.results[0].urls.regular)
 			
 		})
 
@@ -89,9 +90,26 @@ const handleKeyPress = e => {
 const closeModalBtn = () => {
 	modal.style.display = 'none'
 }
+const openModalBtn = () => {
+	modal.style.display = 'flex'
+}
+
+
+const showPhotoInModal = () => {
+	const chooseSize = selectSize.value;
+	console.log(chooseSize)
+	const imageUrl = data.results[0].urls[chooseSize];
+	modalImage.src = imageUrl
+	
+}
+
+
 
 inputSearch.addEventListener('change', searchPhoto)
 inputSearch.addEventListener('keydown', handleKeyPress)
 submitBtn.addEventListener('click', handleSubmit)
 selectElement.addEventListener('change', searchPhoto);
 closeModal.addEventListener('click', closeModalBtn);
+photosContainer.addEventListener('click', openModalBtn);
+selectSize.addEventListener('change', showPhotoInModal)
+
