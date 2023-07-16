@@ -10,9 +10,10 @@ const warning = document.querySelector('.hero_centered--warning')
 const closeModal = document.querySelector('.modal_content-close')
 const modal = document.querySelector('.modal')
 const modalImage = document.querySelector('.modal_img')
-const selectSize = document.getElementById('select_choose-size')
+const selectSize = document.getElementById('#select_choose-size')
 
 let perPage = 0;
+
 
 
 
@@ -38,8 +39,10 @@ const createElement = (data) => {
 
 
 const searchPhoto = ()  => {
-	  if (selectElement.value === '0') {
+	  if (selectElement.value === '0' || inputSearch.value ==='' ) {
+		warning.style.display = 'block'
 		return;
+		
 	  }
 	  warning.style.display = 'none';
 	
@@ -57,8 +60,8 @@ const searchPhoto = ()  => {
 			
 			createElement(data);
 			inputSearch.value = '';
-			// console.log(data.results[0].urls.small)
-			// console.log(data.results[0].urls.regular)
+			
+			
 			
 		})
 
@@ -90,18 +93,19 @@ const handleKeyPress = e => {
 const closeModalBtn = () => {
 	modal.style.display = 'none'
 }
-const openModalBtn = () => {
+const openModalBtn = (event) => {
+	
 	modal.style.display = 'flex'
-}
-
-
-const showPhotoInModal = () => {
-	const chooseSize = selectSize.value;
-	console.log(chooseSize)
-	const imageUrl = data.results[0].urls[chooseSize];
-	modalImage.src = imageUrl
 	
 }
+
+
+// const showPhotoInModal = () => {
+// 	const chooseSize = selectSize.value;
+// 	const imageUrl = data.results[0].urls[chooseSize];
+// 	modalImage.src = imageUrl
+	
+// }
 
 
 
@@ -111,5 +115,5 @@ submitBtn.addEventListener('click', handleSubmit)
 selectElement.addEventListener('change', searchPhoto);
 closeModal.addEventListener('click', closeModalBtn);
 photosContainer.addEventListener('click', openModalBtn);
-selectSize.addEventListener('change', showPhotoInModal)
+
 
