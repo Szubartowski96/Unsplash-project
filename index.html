@@ -1,66 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite App</title>
+    <link rel="stylesheet" href="./scss/style.scss" />
+    <script
+      src="https://kit.fontawesome.com/7699fe80ed.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Moon+Dance&display=swap"
+      rel="stylesheet"
+    />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Vite App</title>
-  <link rel="stylesheet" href="./scss/style.scss">
-  <script src="https://kit.fontawesome.com/7699fe80ed.js" crossorigin="anonymous"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Moon+Dance&display=swap" rel="stylesheet">
-</head>
+  <body>
+    <main>
+      <header class="hero">
+        <div class="hero_text">
+          <h1>Photo Search</h1>
+          <div class="hero_centered">
+            <p>You can search for images here</p>
+            <form class="hero_form">
+              <input
+                type="text"
+                class="hero_centered-form-input"
+                placeholder="Search high quality photos"
+                autofocus
+              />
+              <select name="" id="hero_select" class="hero_count-of-page">
+                <option value="0" disabled selected>
+                  - wybierz liczbę zdjęć -
+                </option>
+                <option value="10">10</option>
+                <option value="20">20</option>
+                <option value="30">30</option>
+              </select>
+              <button type="submit" class="hero_centered-form-btn">Go</button>
+            </form>
+            <p class="hero_centered--warning">Fill in the blanks!</p>
+          </div>
+        </div>
+        <div class="hero_shadow"></div>
+      </header>
 
-<body>
+      <div class="wrapper">
+        <div class="photos"></div>
+      </div>
 
-  <main>
-    <header class="hero">
-      <div class="hero_text">
-        <h1>Photo Search</h1>
-        <div class="hero_centered">
-          <p>You can search for images here</p>
-          <form class="hero_form">
-            <input type="text" class="hero_centered-form-input" placeholder="Search high quality photos" autofocus>
-            <select name="" id="hero_select" class="hero_count-of-page">
-              <option value="0" disabled selected>- wybierz liczbę zdjęć -</option>
-              <option value="10">10</option>
-              <option value="20">20</option>
-              <option value="30">30</option>
-            </select>
-            <button type="submit" class="hero_centered-form-btn">Go</button>
-          </form>
-          <p class="hero_centered--warning"> Fill in the blanks!</p>
+      <div id="myModal" class="modal">
+        <div class="modal_content">
+          <div class="select">
+            <label for="select_choose-size" class="select_label">
+              <select
+                name=""
+                id="select_choose-size"
+                class="select_choose-size"
+              >
+                <option value="0" disabled selected>
+                  - wybierz rozmiar zdjęcia -
+                </option>
+                <option value="small">Small</option>
+                <option value="regular">Medium</option>
+                <option value="full">Height</option>
+              </select>
+            </label>
+          </div>
+          <img class="modal_img" />
+          <button class="modal_content-close">Close</button>
         </div>
       </div>
-      <div class="hero_shadow"></div>
-    </header>
+    </main>
 
-    <div class="wrapper">
-      <div class="photos">
-      </div>
-    </div>
-
-
-    <div id="myModal" class="modal">
-      <div class="modal_content">
-        <div class="select">
-          <label for="select_choose-size" class="select_label">
-            <select name=""  id="select_choose-size" class="select_choose-size">
-              <option value="0" disabled selected>- wybierz rozmiar zdjęcia -</option>
-              <option value="small">Small</option>
-              <option value="regular">Medium</option>
-              <option value="full">Height</option>
-            </select>
-          </label>
-        </div>
-        <button class="modal_content-close">Close</button>
-      </div>
-    </div>
-
-  </main>
-
-  <script type="module" src="./js/main.js"></script>
-</body>
-
+    <script type="module" src="./js/main.js"></script>
+  </body>
 </html>
