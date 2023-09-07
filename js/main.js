@@ -92,7 +92,7 @@ const openModalBtn = e => {
 	modal.style.display = 'flex'
 	modalImage.id = imgId
 	selectSize.value = '0'
-
+	
 	const clickedImg = document.getElementById(imgId)
 	const altDescription = clickedImg.alt
 

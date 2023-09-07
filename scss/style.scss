@@ -215,12 +215,142 @@ body {
 		background-color: #7c7575;
 	}
 }
+@media (max-width: 1200px) {
+	.hero {
+		display: flex;
+		justify-content: center;
+		height: 100vh;
 
-@media (max-width: 576px) {
-	.photos {
-		img {
-			display: flex;
+		&_text {
+			text-align: center;
+
+			h1 {
+				font-size: 38px;
+				margin-bottom: 2rem;
+			}
 		}
+
+		&_centered-form-input {
+			padding: 1.5rem;
+			border: none;
+			border-radius: 5px;
+			width: 90%;
+			margin: 1.5rem 0;
+			
+		}
+
+		&_centered-form-select {
+			padding: 1.5rem;
+			border: none;
+			border-radius: 5px;
+			margin-right: 2rem;
+			width: 10rem;
+			margin-top: 1rem;
+		}
+	}
+	.wrapper {
+		margin: 0 auto;
+		width: 100%;
+	}
+	.photos {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: center;
+		margin-top: 1.5rem;
+
+		a {
+			display: flex;
+			justify-content: center;
+			width: 40rem;
+		}
+
+		img {
+			height: 20rem;
+			width: 40rem;
+			cursor: pointer;
+		}
+	}
+
+	.photos a:nth-child(2),
+	.photos a:nth-child(5),
+	.photos a:nth-child(8) {
+		margin-top: 0;
+	}
+	.photos a:nth-child(3n + 1) {
+		margin-top: 0;
+	}
+}
+
+@media (max-width: 992px) {
+	.hero {
+		display: flex;
+		justify-content: center;
+		height: 100vh;
+
+		&_text {
+			text-align: center;
+
+			h1 {
+				font-size: 38px;
+				margin-bottom: 2rem;
+			}
+		}
+
+		&_centered-form-input {
+			padding: 1.5rem;
+			border: none;
+			border-radius: 5px;
+			width: 90%;
+			margin-top: 1.5rem;
+		}
+
+		&_centered-form-select {
+			padding: 1.5rem;
+			border: none;
+			border-radius: 5px;
+			margin-right: 2rem;
+			width: 10rem;
+			margin-top: 1rem;
+		}
+	}
+	.wrapper {
+		margin: 0 auto;
+		width: 100%;
+	}
+	.modal{
+		&_img {
+			max-height: 70vh;
+			max-width: 90%;
+			padding: 20px;
+		}
+	}
+	.photos {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: center;
+		margin-top: 1.5rem;
+
+		a {
+			display: flex;
+			justify-content: center;
+		}
+
+		img {
+			height: 20rem;
+			width: 40rem;
+			cursor: pointer;
+		}
+	}
+
+	.photos a:nth-child(2),
+	.photos a:nth-child(5),
+	.photos a:nth-child(8) {
+		margin-top: 0;
+	}
+	.photos a:nth-child(3n + 1) {
+		margin-top: 0;
 	}
 }
 @media (max-width: 767px) {
@@ -259,6 +389,16 @@ body {
 		margin: 0 auto;
 		width: 100%;
 	}
+	.modal{
+		display: flex;
+		align-items: center;
+		&_content{
+			height: 60rem;
+		}
+		&_img{
+			max-height: 80%;
+		}
+	}
 	.photos {
 		display: flex;
 		flex-direction: column;
@@ -286,132 +426,19 @@ body {
 		margin-top: 0;
 	}
 }
-@media (max-width: 992px) {
-	.hero {
-		display: flex;
-		justify-content: center;
-		height: 100vh;
 
-		&_text {
-			text-align: center;
-
-			h1 {
-				font-size: 38px;
-				margin-bottom: 2rem;
-			}
+@media (max-width: 576px) {
+	.modal{
+		
+		&_img {
+			max-width: 70%;
+			padding: 20px;
 		}
-
-		&_centered-form-input {
-			padding: 1.5rem;
-			border: none;
-			border-radius: 5px;
-			width: 90%;
-			margin-top: 1.5rem;
-		}
-
-		&_centered-form-select {
-			padding: 1.5rem;
-			border: none;
-			border-radius: 5px;
-			margin-right: 2rem;
-			width: 10rem;
-			margin-top: 1rem;
-		}
-	}
-	.wrapper {
-		margin: 0 auto;
-		width: 100%;
 	}
 	.photos {
-		display: flex;
-		flex-wrap: wrap;
-		align-items: center;
-		justify-content: center;
-		margin-top: 1.5rem;
-
-		a {
-			display: flex;
-			justify-content: center;
-		}
-
 		img {
-			height: 20rem;
-			width: 40rem;
-			cursor: pointer;
+			display: flex;
 		}
-	}
-
-	.photos a:nth-child(2),
-	.photos a:nth-child(5),
-	.photos a:nth-child(8) {
-		margin-top: 0;
-	}
-	.photos a:nth-child(3n + 1) {
-		margin-top: 0;
 	}
 }
-@media (max-width: 1200px) {
-	.hero {
-		display: flex;
-		justify-content: center;
-		height: 100vh;
 
-		&_text {
-			text-align: center;
-
-			h1 {
-				font-size: 38px;
-				margin-bottom: 2rem;
-			}
-		}
-
-		&_centered-form-input {
-			padding: 1.5rem;
-			border: none;
-			border-radius: 5px;
-			width: 90%;
-			margin-top: 1.5rem;
-		}
-
-		&_centered-form-select {
-			padding: 1.5rem;
-			border: none;
-			border-radius: 5px;
-			margin-right: 2rem;
-			width: 10rem;
-			margin-top: 1rem;
-		}
-	}
-	.wrapper {
-		margin: 0 auto;
-		width: 100%;
-	}
-	.photos {
-		display: flex;
-		flex-wrap: wrap;
-		align-items: center;
-		justify-content: center;
-		margin-top: 1.5rem;
-
-		a {
-			display: flex;
-			justify-content: center;
-			width: 40rem;
-		}
-
-		img {
-			height: 20rem;
-			width: 40rem;
-			cursor: pointer;
-		}
-	}
-
-	.photos a:nth-child(2),
-	.photos a:nth-child(5),
-	.photos a:nth-child(8) {
-		margin-top: 0;
-	}
-	.photos a:nth-child(3n + 1) {
-		margin-top: 0;
-	}
-}
